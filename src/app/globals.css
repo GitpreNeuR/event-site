@@ -1,0 +1,385 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/* ------------------------------------------------------------------
+   Aangan design tokens
+   Warm ivory + espresso ink, with a single marigold-ochre accent.
+   Every colour used in the UI should come from this list.
+------------------------------------------------------------------- */
+:root {
+  --ivory: #f5efe6; /* primary background */
+  --sand: #ebe2d3; /* secondary background */
+  --paper: #fbf8f2; /* raised surfaces, inputs */
+  --muted-bg: #e6dccb; /* muted fills, skeletons */
+  --ink: #1c1814; /* primary text, primary buttons */
+  --ink-soft: #5a5147; /* secondary text */
+  --ink-faint: #857a6d; /* captions, meta (large / non-essential text only) */
+  --ochre: #b0662a; /* accent: rules, numerals, decorative details */
+  --ochre-deep: #8a4a1a; /* accent text on light backgrounds (AA) */
+  --ochre-soft: #e9c9a4; /* accent text on dark backgrounds */
+  --line: #d8ccb9; /* borders, separators */
+  --night: #16120f; /* dark sections */
+  --night-soft: #251f1a; /* dark surfaces */
+  --night-line: #3b322a; /* borders on dark */
+  --on-night: #f1e9dc; /* text on dark */
+  --on-night-soft: #b9ad9c; /* secondary text on dark */
+  --danger: #a3362a;
+  --success: #3f6b3a;
+
+  /* shadcn/ui semantic mapping */
+  --background: var(--ivory);
+  --foreground: var(--ink);
+  --card: var(--paper);
+  --card-foreground: var(--ink);
+  --popover: var(--paper);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--ivory);
+  --secondary: var(--sand);
+  --secondary-foreground: var(--ink);
+  --muted: var(--muted-bg);
+  --muted-foreground: var(--ink-soft);
+  --accent: var(--sand);
+  --accent-foreground: var(--ink);
+  --destructive: var(--danger);
+  --border: var(--line);
+  --input: var(--line);
+  --ring: var(--ochre);
+  --radius: 0.375rem;
+
+  --nav-height: 76px;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-ivory: var(--ivory);
+  --color-sand: var(--sand);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-ochre: var(--ochre);
+  --color-ochre-deep: var(--ochre-deep);
+  --color-ochre-soft: var(--ochre-soft);
+  --color-line: var(--line);
+  --color-night: var(--night);
+  --color-night-soft: var(--night-soft);
+  --color-night-line: var(--night-line);
+  --color-on-night: var(--on-night);
+  --color-on-night-soft: var(--on-night-soft);
+  --color-danger: var(--danger);
+  --color-success: var(--success);
+
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-instrument), ui-serif, Georgia, serif;
+  --font-heading: var(--font-display);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+
+  --ease-expo: var(--ease-out-expo);
+
+  --animate-marquee: marquee 48s linear infinite;
+  @keyframes marquee {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+}
+
+/* ------------------------------------------------------------------
+   Typography system
+------------------------------------------------------------------- */
+@utility type-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.9rem, 1.3rem + 5.4vw, 7.4rem);
+  line-height: 0.94;
+  letter-spacing: -0.025em;
+}
+@utility type-h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 1.7rem + 4.2vw, 6rem);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+}
+@utility type-h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.15rem, 1.6rem + 2.5vw, 4.1rem);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+}
+@utility type-h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.55rem, 1.3rem + 1vw, 2.2rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+@utility type-h4 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1.0625rem;
+  line-height: 1.4;
+  letter-spacing: -0.005em;
+}
+@utility type-eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.72rem;
+  line-height: 1.2;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+@utility type-lead {
+  font-size: clamp(1.075rem, 1rem + 0.35vw, 1.3rem);
+  line-height: 1.65;
+}
+@utility type-body {
+  font-size: 1rem;
+  line-height: 1.75;
+}
+@utility type-small {
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+/* ------------------------------------------------------------------
+   Layout primitives
+------------------------------------------------------------------- */
+@utility container-page {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (width >= 48rem) {
+    padding-inline: 2.5rem;
+  }
+  @media (width >= 80rem) {
+    padding-inline: 3.5rem;
+  }
+}
+@utility section-y {
+  padding-block: 5.5rem;
+  @media (width >= 48rem) {
+    padding-block: 7.5rem;
+  }
+  @media (width >= 80rem) {
+    padding-block: 9.5rem;
+  }
+}
+@utility section-y-sm {
+  padding-block: 4rem;
+  @media (width >= 48rem) {
+    padding-block: 5.5rem;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Base
+------------------------------------------------------------------- */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    scroll-padding-top: calc(var(--nav-height) + 1rem);
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01", "cv11";
+    text-rendering: optimizeLegibility;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  ::selection {
+    background: var(--ochre-soft);
+    color: var(--ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--ochre);
+    outline-offset: 3px;
+  }
+  .on-dark :focus-visible {
+    outline-color: var(--ochre-soft);
+  }
+  em.accent {
+    font-style: italic;
+    color: var(--ochre-deep);
+  }
+  .on-dark em.accent {
+    color: var(--ochre-soft);
+  }
+}
+
+/* Editorial underline link */
+@utility link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.5s var(--ease-out-expo);
+  &:hover,
+  &:focus-visible {
+    background-size: 100% 1px;
+  }
+}
+
+/* Long-form article typography */
+.prose-editorial {
+  color: var(--ink-soft);
+  font-size: 1.075rem;
+  line-height: 1.85;
+}
+.prose-editorial > * + * {
+  margin-top: 1.4em;
+}
+.prose-editorial h2 {
+  font-family: var(--font-display);
+  color: var(--ink);
+  font-size: clamp(1.8rem, 1.4rem + 1.4vw, 2.5rem);
+  line-height: 1.1;
+  margin-top: 2.2em;
+}
+.prose-editorial h3 {
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 1.15rem;
+  margin-top: 1.8em;
+}
+.prose-editorial ul {
+  list-style: none;
+  padding: 0;
+}
+.prose-editorial li {
+  position: relative;
+  padding-left: 1.5rem;
+}
+.prose-editorial li + li {
+  margin-top: 0.6em;
+}
+.prose-editorial li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.85em;
+  width: 0.65rem;
+  height: 1px;
+  background: var(--ochre);
+}
+.prose-editorial strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+.prose-editorial blockquote {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  line-height: 1.25;
+  color: var(--ink);
+  border-left: 1px solid var(--ochre);
+  padding-left: 1.5rem;
+}
+
+/* ------------------------------------------------------------------
+   Motion: content is only pre-hidden when JS has flagged the document
+   (see the inline script in layout.jsx). Without JS, with reduced
+   motion, or if hydration stalls past 4s, everything stays visible.
+------------------------------------------------------------------- */
+.js:not(.js-timeout) [data-reveal],
+.js:not(.js-timeout) [data-split] [data-word],
+.js:not(.js-timeout) [data-hero] {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes scrollcue {
+  0% {
+    transform: translateY(-100%);
+  }
+  60%,
+  100% {
+    transform: translateY(300%);
+  }
+}
+
+@keyframes loadbar {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(300%);
+  }
+}
+
+/* ------------------------------------------------------------------
+   Editorial finishes
+------------------------------------------------------------------- */
+
+/* Fine film grain for dark, photo-led sections. Purely decorative. */
+.grain {
+  position: relative;
+  isolation: isolate;
+}
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.09;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Keep in-flow content above the grain; background layers stay below. */
+.grain > :not(.absolute):not(.fixed) {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
