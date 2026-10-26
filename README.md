@@ -1,11 +1,11 @@
-# Aangan — Celebration & Event Studio (Mumbai)
+# Pratha — Celebration & Event Studio (Mumbai)
 
 A multipage marketing website for a premium event-planning studio, built with
 **Next.js 16 (App Router, Cache Components)**, **React 19**, **TypeScript** (`.tsx` components, `.ts` modules), **Tailwind CSS v4**,
 **shadcn/ui (Radix)**, **GSAP + ScrollTrigger** and **Lucide** icons.
 
-"Aangan" is a placeholder brand name (an *aangan* is the courtyard at the heart
-of an Indian home). It is defined in one place and can be changed in seconds.
+"Pratha" is a placeholder brand name (a *pratha* is a custom or tradition passed
+down through a family). It is defined in one place and can be changed in seconds.
 
 ---
 
@@ -76,7 +76,7 @@ The logo mark is in `src/components/layout/Logo.tsx` and the favicon in
 
 ### Replace contact details
 `site.contact` in `src/data/site.ts` holds obvious placeholders
-(`hello@aangan.example`, `+91 00000 00000`). Set real values, add `phoneHref`
+(`hello@pratha.example`, `+91 00000 00000`). Set real values, add `phoneHref`
 / `whatsappHref`, set `isPlaceholder: false`, and update `social`.
 
 ### Replace images

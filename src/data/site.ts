@@ -33,11 +33,11 @@ export interface SiteConfig {
 }
 
 export const site: SiteConfig = {
-  name: "Aangan",
+  name: "Pratha",
   wordmarkSuffix: "Celebration Atelier",
   tagline: "Celebrations & events, designed in Mumbai",
   description:
-    "Aangan is a Mumbai celebration and event studio designing birthdays, family ceremonies, weddings and corporate gatherings — from the first idea to the last guest home.",
+    "Pratha is a Mumbai celebration and event studio designing birthdays, family ceremonies, weddings and corporate gatherings — from the first idea to the last guest home.",
   shortDescription:
     "A celebration and event studio for Mumbai — birthdays, ceremonies, weddings and brand gatherings, planned with care and produced with precision.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
@@ -48,7 +48,7 @@ export const site: SiteConfig = {
 
   // PLACEHOLDER contact details — replace before launch.
   contact: {
-    email: "hello@aangan.example",
+    email: "hello@pratha.example",
     phoneDisplay: "+91 00000 00000",
     phoneHref: null, // e.g. "tel:+919800000000" once a real number exists
     whatsappHref: null, // e.g. "https://wa.me/919800000000"

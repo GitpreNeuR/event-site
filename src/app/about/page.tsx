@@ -60,10 +60,10 @@ export default function AboutPage() {
               <Eyebrow index="01">Philosophy</Eyebrow>
             </div>
             <div className="lg:col-span-7">
-              <SplitHeading text="The *aangan* is where a family celebrates — open to the sky, full of people, never rushed." className="type-h2" />
+              <SplitHeading text="A *pratha* is how a family celebrates — handed down, full of people, never rushed." className="type-h2" />
               <div className="mt-10 grid gap-6 md:grid-cols-2" data-reveal>
                 <p className="type-body text-ink-soft">
-                  In many Indian homes, the courtyard is where life gathers: rituals in the morning, children playing at noon, long conversations at dusk. It is generous and practical at once. That balance is what we aim for in every event.
+                  In many Indian families, customs are what bring everyone together: rituals in the morning, elders guiding the order of things, long conversations at dusk. They are meaningful and practical at once. That balance is what we aim for in every event.
                 </p>
                 <p className="type-body text-ink-soft">
                   We believe celebrations should feel personal, look considered and run so smoothly that hosts forget anyone was managing them. Our work is the planning that makes that possible.

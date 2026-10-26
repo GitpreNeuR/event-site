@@ -11,12 +11,12 @@ export function Introduction() {
         <div className="lg:col-span-6 lg:pt-10">
           <Eyebrow index="01">The studio</Eyebrow>
           <SplitHeading
-            text="An *aangan* is the courtyard at the heart of a home — where every celebration begins."
+            text="A *pratha* is a custom passed down through a family — the heart of every celebration."
             className="type-h2 mt-8 max-w-[18ch]"
           />
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:max-w-xl" data-reveal>
             <p className="type-body text-ink-soft">
-              We named the studio after that space because it captures how we work: open, warm and organised around
+              We named the studio after those customs because they capture how we work: rooted, warm and organised around
               people. Every event begins with who is gathering and why — the design follows.
             </p>
             <p className="type-body text-ink-soft">

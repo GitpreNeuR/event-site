@@ -2,7 +2,7 @@ import Link from "next/link";
 import { site } from "@/data/site";
 import { cn } from "@/lib/utils";
 
-/** Arch monogram: an aangan (courtyard) doorway with a single diya flame. */
+/** Arch monogram: a ceremonial doorway with a single diya flame. */
 export function LogoMark({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 32 40" aria-hidden="true" className={cn("h-8 w-auto", className)} fill="none">
